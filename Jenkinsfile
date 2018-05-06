@@ -1,5 +1,5 @@
 pipeline {
-agent { docker { image '2.7.15-alpine3.6' } }	 
+agent { docker { image 'python:2.7.15-alpine3.6' } }	 
     stages {
         stage('build') {
             steps {
