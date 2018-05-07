@@ -4,7 +4,7 @@ agent { docker { image 'python:2.7.15-alpine3.7' } }
         stage('build') {
             steps {
                 echo 'building...'
-                heckout scm
+                checkout scm
             }
         }
   stage('run'){
