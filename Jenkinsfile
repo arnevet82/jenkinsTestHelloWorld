@@ -1,29 +1,10 @@
 pipeline {
-    agent { docker { image 'centos' } }
+    agent { docker { image 'node:6.3' } }
     stages {
         stage('build') {
             steps {
-                echo 'building...'
-                sh 'whoami'
-         checkout scm
-            }
-        }
-  stage('run'){
-            steps {
-                sh 'python --version'
-         sh 'python python_test.py'
+                sh 'npm --version'
             }
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
