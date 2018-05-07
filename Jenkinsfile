@@ -1,13 +1,13 @@
-
 pipeline {
-    agent {
-        docker {
-            image 'python:2.7.15-alpine3.7'
-            args '-u root:sudo -v $home/natalies'
-        }
-    }
+    agent any
     stages {
-        stage('run'){
+        stage(Build) {
+            steps {
+                echo 'building...'
+	        checkout scm
+            }
+        }
+    stage('run'){
             steps {
                 sh 'python --version'
                 sh 'python python_test.py'
@@ -15,7 +15,6 @@ pipeline {
         }
     }
 }
-
 
 
 
