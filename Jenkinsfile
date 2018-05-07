@@ -1,23 +1,20 @@
 pipeline {
-    agent any
+agent { docker { image 'python:2.7.15-alpine3.7' } }
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
                 echo 'building...'
-	        checkout scm
+         checkout scm
             }
         }
-    stage('run'){
+  stage('run'){
             steps {
                 sh 'python --version'
-                sh 'python python_test.py'
+         sh 'python python_test.py'
             }
         }
     }
 }
-
-
-
 
 
 
