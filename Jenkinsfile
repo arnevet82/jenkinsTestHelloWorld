@@ -22,6 +22,7 @@ pipeline {
                 
 		script{
 			def server = Artifactory.server 'art-1'
+			def uploadSpec = readFile 'jenkinsTestHelloWorld/python_test.py'
 		}
            }
 	}
