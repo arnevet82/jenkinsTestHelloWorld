@@ -18,7 +18,7 @@ agent { docker { image 'python:2.7.15-alpine3.7' } }
                 echo 'building...'
                 checkout scm
                 sh "echo ${server}"
-                server.upload(uploadSpec)
+                script: server.upload(uploadSpec)
                 
             }
         }
