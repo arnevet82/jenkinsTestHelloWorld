@@ -17,6 +17,14 @@ pipeline {
            }
       
 	  }
+  	stage('Artifactory download and upload'){
+		steps {
+                
+		echo 'Artifactory download and upload...'
+                               
+		sh "echo ${server}"
+           }
+	}
 	stage('run'){
             
 		steps {
