@@ -17,14 +17,6 @@ pipeline {
            }
       
 	  }
-
-        stage('Artifactory download and upload'){
-            steps {
-                script{
-                    
-                }
-            }
-        }
 	stage('run'){
             
 		steps {
