@@ -20,9 +20,9 @@ pipeline {
   	stage('Artifactory download and upload'){
 		steps {
                 
-		echo 'Artifactory download and upload...'
-                               
-		sh "echo ${server}"
+		script{
+			def server = Artifactory.server 'art-1'
+		}
            }
 	}
 	stage('run'){
