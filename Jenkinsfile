@@ -20,9 +20,14 @@ pipeline {
 		script{
 			def server = Artifactory.server 'art-1'
 			def uploadSpec = readFile 'python_test.py'
-			String fileContents = new File('/path/to/file').text
-			//def buildInfo = server.upload spec: uploadSpec
-			sh "echo ${fileContents}"
+			def uploadSpec = """{
+				  "files": [
+				    {
+				      "pattern": "*test*.py",
+				      "target": "python-test-repo/py-files"
+				    }
+				 ]
+			}"""
 		}
            }
 	}
