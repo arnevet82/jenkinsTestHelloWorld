@@ -10,7 +10,7 @@ pipeline {
                
 		checkout scm
                 
-		sh "echo ${server}"
+		//sh "echo ${server}"
            }
       
 	  }
