@@ -19,7 +19,6 @@ pipeline {
                 
 		script{
 			def server = Artifactory.server 'art-1'
-			def uploadSpec = readFile 'python_test.py'
 			def uploadSpec = """{
 				  "files": [
 				    {
