@@ -1,11 +1,11 @@
 pipeline {
 agent { docker { image 'python:2.7.15-alpine3.7' } }
-def server = Artifactory.server 'art-1'
     stages {
         stage('build') {
             steps {
                 echo 'building...'
                 checkout scm
+                def server = Artifactory.server 'art-1'
                 echo 'Hello Mr. ${server}'
                 
             }
