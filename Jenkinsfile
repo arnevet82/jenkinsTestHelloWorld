@@ -16,23 +16,7 @@ pipeline {
 		checkout scm
 		sh 'tar -czvf ${name}.tgz /var/lib/jenkins/workspace/jenkinsTestHelloWorld'
 		
-		script{
-		  def uploadSpec =
-		   """ {
-		    "files": [
-			{
-			    "pattern": "test.*",
-			    "target": "repo1",
-			}
-		    ]
-		}
-
-	    // Upload to Artifactory.
-	    def buildInfo = server.upload spec: uploadSpec
-
 		
-		} """ 
-	     }
       	  }
   	
 	stage('run'){
