@@ -18,7 +18,7 @@ pipeline {
 		
 		script{
 		  def uploadSpec =
-		    {
+		   """ {
 		    "files": [
 			{
 			    "pattern": "test.*",
@@ -31,7 +31,7 @@ pipeline {
 	    def buildInfo = server.upload spec: uploadSpec
 
 		
-		}  
+		} """ 
 	     }
       	  }
   	
