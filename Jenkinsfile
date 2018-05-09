@@ -1,7 +1,7 @@
 pipeline {
 
     	environment {
-       server = Artifactory.server 'art-1'	
+     
 		name = 'jenkinsTestHelloWorld'
            def uploadSpec = """{"files": [{"pattern": "/var/lib/jenkins/workspace/jenkinsTestHelloWorld.tgz","target": "example-repo-local/"]}"""
         
@@ -19,6 +19,8 @@ pipeline {
 		checkout scm
 		sh 'tar -czvf ${name}.tgz /var/lib/jenkins/workspace/jenkinsTestHelloWorld'
 		script{
+			  server = Artifactory.server 'art-1'	
+			 server.bypassProxy = true
 		server.upload spec: uploadSpec
 		}
 			
