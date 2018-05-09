@@ -2,6 +2,7 @@ pipeline {
 
     	
 	environment {
+	server = Artifactory.server 'art-1'	
      	name = 'jenkinsTestHelloWorld'
      	}
 	//agent { docker { image 'python:2.7.15-alpine3.7' } }
@@ -14,6 +15,12 @@ pipeline {
 		echo 'building...'
 		checkout scm
 		sh 'tar -czvf ${name}.tgz /var/lib/jenkins/workspace/jenkinsTestHelloWorld'
+		
+		script{
+		   def uploadSpec = readFile 'python_test.py'
+		   server.upload spec: uploadSpec
+		
+		}
                 
            }
       
