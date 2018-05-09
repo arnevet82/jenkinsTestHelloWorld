@@ -19,7 +19,7 @@ pipeline {
 		checkout scm
 		sh 'tar -czvf ${name}.tgz /var/lib/jenkins/workspace/jenkinsTestHelloWorld'
 		script{
-			  server = Artifactory.server 'art-1'	
+			def  server = Artifactory.server 'art-1'	
 			 server.bypassProxy = true
 		server.upload spec: uploadSpec
 		}
