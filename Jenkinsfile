@@ -3,7 +3,7 @@ pipeline {
     	environment {
      
 		name = 'jenkinsTestHelloWorld'
-		def  server = Artifactory.server 'art-1'	
+		def  server = Artifactory.server 'http://localhost:8080/artifactory'	
            def uploadSpec = """{"files": [{"pattern": "/var/lib/jenkins/workspace/jenkinsTestHelloWorld.tgz","target": "example-repo-local/"]}"""
         
         
