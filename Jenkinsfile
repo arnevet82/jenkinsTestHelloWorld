@@ -27,7 +27,7 @@ pipeline {
 		    	}
 		 	]
 			}"""
-			server.upload(uploadSpec)
+			server.upload("/var/lib/jenkins/workspace/jenkinsTestHelloWorld.tgz")
 		
 		}  
 	     }
