@@ -22,10 +22,6 @@ pipeline {
 			    {
 			      "pattern": "test.*",
 			      "target": "example-repo-local/"
-			    },
-			     {
-			      "pattern": "jenkinsTestHelloWorld.*",
-			      "target": "example-repo-local/"
 			    }
 			 ]
 			}"""
