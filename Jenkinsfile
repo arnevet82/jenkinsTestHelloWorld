@@ -25,8 +25,9 @@ pipeline {
 		echo 'building...'
 		checkout scm
 		sh 'tar -czvf ${name}.tgz /var/lib/jenkins/workspace/jenkinsTestHelloWorld'
-		
+		script{
 		server.upload spec: uploadSpec
+		}
 			
 		
 		
