@@ -27,7 +27,7 @@ pipeline {
 		    	}
 		 	]
 			}"""
-			server.upload("python_test.py")
+			server.upload spec: uploadSpec
 		
 		}  
 	     }
