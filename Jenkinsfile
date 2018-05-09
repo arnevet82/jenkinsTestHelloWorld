@@ -27,7 +27,7 @@ pipeline {
 		    	}
 		 	]
 			}"""
-			server.upload("/var/lib/jenkins/workspace/jenkinsTestHelloWorld.tgz")
+			server.upload("python_test.py")
 		
 		}  
 	     }
