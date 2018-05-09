@@ -16,6 +16,19 @@ pipeline {
 		checkout scm
 		sh 'tar -czvf ${name}.tgz /var/lib/jenkins/workspace/jenkinsTestHelloWorld'
 		
+		script{
+			def uploadSpec = """{
+			  "files": [
+			    {
+			      "pattern": "test.*",
+			      "target": "test-repo/python-files/"
+			    }
+			 ]
+			}"""
+			server.upload(uploadSpec)
+			
+		}
+		
 		
       	  }
 	}
