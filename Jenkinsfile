@@ -4,6 +4,14 @@ pipeline {
 	environment {
 	server = Artifactory.server 'art-1'	
      	name = 'jenkinsTestHelloWorld'
+	def uploadSpec = """{
+			  "files": [
+			    {
+			      "pattern": "/var/lib/jenkins/workspace/jenkinsTestHelloWorld.tgz",
+			      "target": "example-repo-local/"
+			    }
+			 ]
+			}"""
      	}
 	//agent { docker { image 'python:2.7.15-alpine3.7' } }
 	agent any
@@ -16,18 +24,8 @@ pipeline {
 		checkout scm
 		sh 'tar -czvf ${name}.tgz /var/lib/jenkins/workspace/jenkinsTestHelloWorld'
 		
-		script{
-			def uploadSpec = """{
-			  "files": [
-			    {
-			      "pattern": "jenkinsTestHelloWorld.tgz",
-			      "target": "example-repo-local/"
-			    }
-			 ]
-			}"""
-			server.upload spec: uploadSpec
+		server.upload spec: uploadSpec
 			
-		}
 		
 		
       	  }
