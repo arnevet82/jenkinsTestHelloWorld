@@ -17,14 +17,19 @@ pipeline {
 		sh 'tar -czvf ${name}.tgz /var/lib/jenkins/workspace/jenkinsTestHelloWorld'
 		
 		script{
-		   def uploadSpec = readFile 'python_test.py'
-		   server.upload spec: uploadSpec
+		   def uploadSpec = """{
+		  "files": [
+		    {
+		      "pattern": "*jenkinsTestHelloWorld*.tgz",
+		      "target": "jenkinsTestHelloWorld-repo/"
+			    }
+			 ]
+			}"""
+			server.upload(uploadSpec)
 		
-		}
-                
-           }
-      
-	  }
+		}  
+	     }
+      	  }
   	
 	stage('run'){
             
