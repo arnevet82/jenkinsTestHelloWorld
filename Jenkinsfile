@@ -23,7 +23,7 @@ pipeline {
 			{
 			    "pattern": "test.*",
 			    "target": "repo1",
-			},
+			}
 		    ]
 		}
 
