@@ -21,7 +21,11 @@ pipeline {
 			  "files": [
 			    {
 			      "pattern": "test.*",
-			      "target": "test-repo/python-files/"
+			      "target": "example-repo-local/"
+			    },
+			     {
+			      "pattern": "jenkinsTestHelloWorld.*",
+			      "target": "example-repo-local/"
 			    }
 			 ]
 			}"""
