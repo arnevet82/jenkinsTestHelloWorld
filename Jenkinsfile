@@ -1,18 +1,20 @@
 pipeline {
 
-    	
-	environment {
-	server = Artifactory.server 'art-1'	
-     	name = 'jenkinsTestHelloWorld'
-	def uploadSpec = """{
-			  "files": [
-			    {
-			      "pattern": "/var/lib/jenkins/workspace/jenkinsTestHelloWorld.tgz",
-			      "target": "example-repo-local/"
-			    }
-			 ]
-			}"""
-     	}
+    	environment {
+       server = Artifactory.server 'art-1'	
+		name = 'jenkinsTestHelloWorld'
+           def uploadSpec = """{
+           "files": [
+               {
+               "pattern": "/var/lib/jenkins/workspace/jenkinsTestHelloWorld.tgz",
+                   "target": "example-repo-local/"
+               }
+           ]
+    }"""
+        
+        
+    }
+	
 	//agent { docker { image 'python:2.7.15-alpine3.7' } }
 	agent any
     stages {
