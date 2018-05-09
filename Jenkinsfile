@@ -1,6 +1,10 @@
 pipeline {
 
-    	agent { docker { image 'python:2.7.15-alpine3.7' } }
+    	
+	environment {
+     	name = 'jenkinsTestHelloWorld'
+     	}
+	agent { docker { image 'python:2.7.15-alpine3.7' } }
     stages {
         stage('build') {
             
@@ -9,6 +13,7 @@ pipeline {
 		echo 'building...'
                
 		checkout scm
+		tar -zcvf ${name}.tgz .
                 
 		//sh "echo ${server}"
            }
