@@ -17,13 +17,15 @@ pipeline {
 		sh 'tar -czvf ${name}.tgz /var/lib/jenkins/workspace/jenkinsTestHelloWorld'
 		
 		script{
-		   def uploadSpec = """{
+		  def uploadSpec = """{
 		  "files": [
 		    {
-		      "pattern": "*jenkinsTestHelloWorld*.tgz",
-		      "target": "jenkinsTestHelloWorld-repo/"
-			    }
-			 ]
+		      "pattern": "/var/lib/jenkins/workspace*.tgz",
+		      "target": "my-libs/",
+		      "regexp": "false",
+		      "recursive": "false"
+		    	}
+		 	]
 			}"""
 			server.upload(uploadSpec)
 		
