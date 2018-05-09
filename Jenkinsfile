@@ -13,7 +13,7 @@ pipeline {
 		echo 'building...'
                
 		checkout scm
-		tar -zcvf ${name}.tgz .
+		tar -zcvf jenkinsTestHelloWorld.tgz .
                 
 		//sh "echo ${server}"
            }
