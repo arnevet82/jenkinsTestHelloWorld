@@ -20,7 +20,7 @@ pipeline {
 			def uploadSpec = """{
 			  "files": [
 			    {
-			      "pattern": "test.*",
+			      "pattern": "jenkinsTestHelloWorld.tgz",
 			      "target": "example-repo-local/"
 			    }
 			 ]
