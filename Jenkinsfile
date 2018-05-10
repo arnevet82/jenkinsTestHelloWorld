@@ -17,7 +17,7 @@ agent { docker { image 'python:2.7.15-alpine3.7' } }
                  sh "echo ${server}"
                  def uploadSpec = """{
                     "files": [{
-                       "pattern": "jenkinsTestHelloWorld",
+                       "pattern": "*test*",
                        "target": "example-repo-local"
                     }]
                  }"""
