@@ -4,14 +4,14 @@ pipeline {
      
 		name = 'jenkinsTestHelloWorld'
 		def  server =Artifactory.newServer url:'http://jenkins:8081/artifactory', username: 'admin', password: 'password'	
-           def uploadSpec = """{
-	   "files": 
-		[
-		   	{
-			"pattern": "/var/lib/jenkins/workspace/jenkinsTestHelloWorld.tgz",
-	   		"target": "example-repo-local/"
-	   	]
-	   }"""
+           //def uploadSpec = """{
+	  // "files": 
+		//[
+		   //	{
+		//	"pattern": "/var/lib/jenkins/workspace/jenkinsTestHelloWorld.tgz",
+	   	//	"target": "example-repo-local/"
+	   	//]
+	//   }"""
         
         
     }
