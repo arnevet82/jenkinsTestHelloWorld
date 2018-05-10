@@ -11,8 +11,11 @@ agent { docker { image 'python:2.7.15-alpine3.7' } }
             steps {
                 echo 'building...'
                 checkout scm
-                sh "echo ${uploadSpec}"
+                sh "echo ${server}"
                 sh 'tar -czvf ${name}.tgz /var/lib/jenkins/workspace/jenkinsTestHelloWorld'
+                 script{
+                      server.upload(uploadSpec)
+                 }
             }
         }
   stage('run'){
