@@ -15,7 +15,7 @@ environment {
                  sh "echo ${server}"
                  def uploadSpec = """{
                     "files": [{
-                       "pattern": "*test*",
+                       "pattern": "*nothing*",
                        "target": "example-repo-local"
                     }]
                  }"""
