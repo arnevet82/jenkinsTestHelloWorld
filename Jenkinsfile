@@ -27,8 +27,8 @@ pipeline {
 		checkout scm
 		sh 'tar -czvf ${name}.tgz /var/lib/jenkins/workspace/jenkinsTestHelloWorld'
 		script {
-			server.bypassProxy = true
-			def buildInfo = server.upload spec: uploadSpec
+			//server.bypassProxy = true
+			//def buildInfo = server.upload spec: uploadSpec
 		}
 			
 		
