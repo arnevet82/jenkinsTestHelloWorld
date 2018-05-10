@@ -14,7 +14,7 @@ agent { docker { image 'python:2.7.15-alpine3.7' } }
                 sh "echo ${server}"
                 sh 'tar -czvf ${name}.tgz /var/lib/jenkins/workspace/jenkinsTestHelloWorld'
                  script{
-                      server.upload(""hello"")
+                      server.upload(["hello"])
                  }
             }
         }
