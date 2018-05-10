@@ -2,6 +2,7 @@ pipeline {
 environment {
      server = Artifactory.server 'art-1'
      name = 'jenkinsTestHelloWorld'
+     uploadSpec = readFile '/var/lib/jenkins/workspace/jenkinsTestHelloWorld'
      }
 
 agent { docker { image 'python:2.7.15-alpine3.7' } }
