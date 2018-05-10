@@ -3,8 +3,7 @@ environment {
      name = 'jenkinsTestHelloWorld'
      }
 
-    //agent { docker { image 'python:2.7.15-alpine3.7' } }
-    agent any
+    agent { docker { image 'python:2.7.15-alpine3.7' } }
     stages {
         stage('build') {
             steps {
