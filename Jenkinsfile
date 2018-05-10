@@ -26,10 +26,10 @@ pipeline {
 		echo 'building...'
 		checkout scm
 		sh 'tar -czvf ${name}.tgz /var/lib/jenkins/workspace/jenkinsTestHelloWorld'
-		script {
+		//script {
 			//server.bypassProxy = true
 			//def buildInfo = server.upload spec: uploadSpec
-		}
+		//}
 			
 		
 		
