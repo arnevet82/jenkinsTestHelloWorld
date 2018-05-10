@@ -1,8 +1,6 @@
 pipeline {
 environment {
-    // server = Artifactory.server 'art-1'
      name = 'jenkinsTestHelloWorld'
-     //uploadSpec = readFile '/var/lib/jenkins/workspace/jenkinsTestHelloWorld/python_test.py'
      }
 
 agent { docker { image 'python:2.7.15-alpine3.7' } }
@@ -14,6 +12,7 @@ agent { docker { image 'python:2.7.15-alpine3.7' } }
                  sh 'tar -czvf ${name}.tgz /var/lib/jenkins/workspace/jenkinsTestHelloWorld'
                  script { 
                  def server = Artifactory.server 'art-1'
+                 def server = Artifactory.server url: 'http://jenkins:8081/artifactory', username: 'admin', password: 'password'
                  sh "echo ${server}"
                  def uploadSpec = """{
                     "files": [{
