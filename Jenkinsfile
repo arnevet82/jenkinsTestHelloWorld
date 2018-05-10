@@ -16,7 +16,7 @@ environment {
                  def uploadSpec = """{
                     "files": [{
                        "pattern": "**.tgz",
-                       "target": "example-repo-local"
+                       "target": "condensed-files-local"
                     }]
                  }"""
 
