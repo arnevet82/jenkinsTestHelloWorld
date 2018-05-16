@@ -9,12 +9,7 @@ environment {
             steps {
                  echo 'building...'
                  
-                 checkout([
-            $class: 'GitSCM',
-            branches: [[name: '*/dev']], 
-            extensions: [], 
-            userRemoteConfigs: [[credentialsId: 'd6564d07-a13c-4477-a5e3-734017e4d590', url: 'https://github.com/arnevet82/jenkinsTestHelloWorld.git']]
-                 ])
+                 checkout scm
                  
                  sh 'tar -czvf ${name}.tgz /var/lib/jenkins/workspace/jenkinsTestHelloWorld'
                  script { 
