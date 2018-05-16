@@ -8,7 +8,14 @@ environment {
         stage('build') {
             steps {
                  echo 'building...'
-                 checkout scm
+                 
+                 checkout([
+            $class: 'GitSCM',
+            branches: [[name: '*/master']], 
+            extensions: [], 
+            userRemoteConfigs: [[credentialsId: 'd6564d07-a13c-4477-a5e3-734017e4d590', url: 'https://github.com/arnevet82/jenkinsTestHelloWorld.git']]
+                 ])
+                 
                  sh 'tar -czvf ${name}.tgz /var/lib/jenkins/workspace/jenkinsTestHelloWorld'
                  script { 
                  def server = Artifactory.newServer url:'http://jenkins:8081/artifactory', username: 'admin', password: 'password'
